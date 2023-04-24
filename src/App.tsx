@@ -1,11 +1,10 @@
 import './App.css';
-import { Users } from './components/Users';
+import { Followers } from './components/Followers';
 
 function App() {
   return (
     <>
-      <h1>hi!</h1>
-      <Users />
+      <Followers />
     </>
   );
 }
