@@ -1,5 +1,5 @@
 import { Todo } from '@/types';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import styled from 'styled-components';
@@ -16,6 +16,7 @@ const Container = styled.div`
 const Input = styled.input`
   border: none;
   width: 90%;
+  padding: 0.5rem;
 `;
 const AddButton = styled.button`
   border: none;
@@ -33,7 +34,8 @@ type Props = {
 
 export const AddInput = ({ setTodos, todos }: Props) => {
   const [todo, setTodo] = useState('');
-  const addTodo = () => {
+  const addTodo = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (!todo.trim()) return;
     const updateTodos = [
       ...todos,
@@ -45,13 +47,15 @@ export const AddInput = ({ setTodos, todos }: Props) => {
 
   return (
     <Container>
-      <Input
-        type='text'
-        value={todo}
-        onChange={e => setTodo(e.target.value)}
-        placeholder='clean the dirty dishes...'
-      />
-      <AddButton onClick={addTodo}>Add</AddButton>
+      <form onSubmit={addTodo}>
+        <Input
+          type='text'
+          value={todo}
+          onChange={e => setTodo(e.target.value)}
+          placeholder='clean the dirty dishes...'
+        />
+        <AddButton type='submit'>Add</AddButton>
+      </form>
     </Container>
   );
 };
