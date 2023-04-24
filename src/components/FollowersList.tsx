@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { TUser } from '@/types';
 
@@ -60,8 +61,7 @@ export const FollowersList = () => {
           ))}
       </div>
       <div>
-        {/* // TODO: INTEGRAR REACT-ROUTER-DOM */}
-        {/* <Link to='/'>Go Back</Link> */}
+        <Link to='/'>Go Back</Link>
       </div>
     </FollowerListContainer>
   );

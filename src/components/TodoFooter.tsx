@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 type Props = {
@@ -7,14 +8,15 @@ type Props = {
 const TodoFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   p {
     font-weight: 600;
     color: grey;
   }
   a {
     font-weight: 600;
-    color: grey;
-    text-decoration: none;
+    color: blue;
+    text-decoration: underline;
   }
 `;
 
@@ -25,8 +27,7 @@ export const TodoFooter = ({ numberOfIncompleteTasks }: Props) => {
         {numberOfIncompleteTasks}{' '}
         {numberOfIncompleteTasks === 1 ? 'task' : 'tasks'}
       </p>
-      {/* //TODO: HACER LO DEL LINK  */}
-      {/* <Link to='/followers'>Followers</Link> */}
+      <Link to='/followers'>Followers</Link>
     </TodoFooterContainer>
   );
 };

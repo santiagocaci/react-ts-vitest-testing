@@ -1,8 +1,11 @@
-import { Todo as ITodo } from '@/types';
+import styled from 'styled-components';
+
 import { useState } from 'react';
 import { Header } from './Header';
 import { AddInput } from './AddInput';
-import styled from 'styled-components';
+import { TodoList } from './TodoList';
+
+import { Todo as ITodo } from '@/types';
 
 const TodoContainer = styled.div`
   margin-top: -22.5vh;

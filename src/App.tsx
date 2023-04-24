@@ -1,10 +1,16 @@
+import { Route, Routes } from 'react-router-dom';
+
+import { TodoPage } from './pages/TodoPage';
+import { FollowersPage } from './pages/FollowersPage';
 import './App.css';
-import { Followers } from './components/Followers';
 
 function App() {
   return (
     <>
-      <Followers />
+      <Routes>
+        <Route path='/' element={<TodoPage />} />
+        <Route path='/followers' element={<FollowersPage />} />
+      </Routes>
     </>
   );
 }

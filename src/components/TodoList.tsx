@@ -22,7 +22,7 @@ const TodoItem = styled('div')<{ todoItemActive: boolean }>`
   padding: 1rem 0;
   cursor: pointer;
   text-decoration: ${props => (props.todoItemActive ? 'line-through' : '')};
-  color: ${props => (props.todoItemActive ? 'gray' : '')};
+  color: ${props => (props.todoItemActive ? 'gray' : 'black')};
 `;
 
 type Props = {
