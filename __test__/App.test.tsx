@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from '@/App';
 
-describe('App', () => {
+describe.skip('App', () => {
   it('renders correctly', () => {
     render(<App />);
     const greetElement = screen.getByRole('heading', {

@@ -15,7 +15,8 @@ const FollowerListContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-const FollowerItem = styled.div`
+const FollowerItem = styled.li`
+  color: black;
   display: flex;
   padding: 1rem 0;
   border-bottom: 0.05rem solid rgba(0, 0, 0, 0.082);
@@ -37,7 +38,7 @@ const FollowerItemName = styled.div`
 `;
 
 export const FollowersList = () => {
-  const [followers, setFollowers] = useState<TUser[] | undefined>([]);
+  const [followers, setFollowers] = useState<TUser[]>([]);
   useEffect(() => {
     fetch('https://randomuser.me/api/?results=5')
       .then(res => res.json())
@@ -46,10 +47,13 @@ export const FollowersList = () => {
 
   return (
     <FollowerListContainer>
-      <div>
+      <ul>
         {followers &&
           followers.map((follower, index) => (
-            <FollowerItem data-testid={`follower-item${index}`}>
+            <FollowerItem
+              key={follower.login.username}
+              data-testid={`follower-item${index}`}
+            >
               <img src={follower.picture.large} alt='' />
               <FollowerDetails>
                 <FollowerItemName>
@@ -59,7 +63,7 @@ export const FollowersList = () => {
               </FollowerDetails>
             </FollowerItem>
           ))}
-      </div>
+      </ul>
       <div>
         <Link to='/'>Go Back</Link>
       </div>

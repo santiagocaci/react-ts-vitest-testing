@@ -13,11 +13,12 @@ const TodoFooterContainer = styled.div`
     font-weight: 600;
     color: grey;
   }
-  a {
-    font-weight: 600;
-    color: blue;
-    text-decoration: underline;
-  }
+`;
+
+const StyledLink = styled(Link)`
+  font-weight: 600;
+  color: blue;
+  text-decoration: underline;
 `;
 
 export const TodoFooter = ({ numberOfIncompleteTasks }: Props) => {
@@ -27,7 +28,7 @@ export const TodoFooter = ({ numberOfIncompleteTasks }: Props) => {
         {numberOfIncompleteTasks}{' '}
         {numberOfIncompleteTasks === 1 ? 'task' : 'tasks'}
       </p>
-      <Link to='/followers'>Followers</Link>
+      <StyledLink to='/followers'>Followers</StyledLink>
     </TodoFooterContainer>
   );
 };
